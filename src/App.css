@@ -1,8 +1,106 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  box-sizing: border-box;
+}
+
+.app-shell {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.panel-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.chart-panel {
+  height: 100%;
+}
+
+.data-panel {
+  height: 70vh; /* keep table tall */
+  display: flex;
+  flex-direction: column;
+}
+
+.data-panel table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 2;
+}
+
+.data-panel table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.data-panel table tbody tr:hover {
+  background: rgba(100, 108, 255, 0.06);
+}
+
+.data-panel .pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Event modal (full-screen overlay with blur behind) */
+.event-modal-overlay {
+  position: fixed;
+  inset: 0;
+  /* translucent dark overlay + enable backdrop blur */
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.event-modal {
+  width: min(900px, 96%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .logo {

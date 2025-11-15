@@ -1,11 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* app color tokens */
+  --bg: #121212;
+  --surface: #1a1a1a;
+  --muted: #888888;
+  --accent: #646cff;
+  --text: rgba(255, 255, 255, 0.92);
+
+  color: var(--text);
+  background-color: var(--bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +36,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center; /* center content horizontally */
+  align-items: flex-start; /* keep content starting from top vertically */
   min-width: 320px;
   min-height: 100vh;
 }
